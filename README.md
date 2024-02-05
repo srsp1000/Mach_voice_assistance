@@ -1,5 +1,6 @@
 # Mach_voice_assistance
 This is a voice assistance code written in python language that uses API's to provide features such as news, weather, email etc .It also has some basic GUI. You can use it as your minor python project.
+Image of this application has been attached with this repository (machpreview.jpeg). you can edit GUI, instuctions have been provided along the GUI code.
 
 ** Voice Commands:** Talk and get things done!
 
