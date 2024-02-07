@@ -1,22 +1,23 @@
+# Important note: all the library imported here are not required by this code, extra libraries have been added for adding further features to code. Please install only those which are required. Run this code in your IDE to see which are required to install. 
 import subprocess
 import wolframalpha
 import pyttsx3
-import tkinter as tk
+import tkinter as tk # for gui
 import json
 import random
 import operator
-import speech_recognition as sr
+import speech_recognition as sr # important for sppech recognition
 import datetime
 import wikipedia
 import webbrowser
 import os
 import winshell
-import pyjokes
+import pyjokes # for jokes
 import feedparser
-import smtplib
+import smtplib # for mail
 import ctypes
 import time
-import requests
+import requests # for sending request 
 import shutil
 import threading
 import ssl
@@ -31,8 +32,8 @@ from urllib.request import urlopen
 ssl._create_default_https_context = ssl._create_unverified_context
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
-assname='mach'
+engine.setProperty('voice', voices[0].id) # 0 - male voice and 1 - female voice
+assname='mach'  # name of assistance 
 def speak(audio):
 	engine.say(audio)
 	engine.runAndWait()
@@ -74,7 +75,7 @@ def takeCommand():
 	with sr.Microphone() as source:
 		r.adjust_for_ambient_noise(source)
 		print("Listening...")
-		r.pause_threshold = .5  ## threshold is the minimum level of sound that must be present in order for the system to recognize a phrase or command.
+		r.pause_threshold = .5  # Adjust threshold according to your requirement# threshold is the minimum level of sound that must be present in order for the system to recognize a phrase or command. 
 		audio = r.listen(source)
 
 	try:
@@ -387,16 +388,18 @@ def stop_voice_assistant():
     global stop_event
     stop_event.set()
 
+#GUI code 
+
 root = tk.Tk()
 root.title("mach")
 root.geometry("600x500")  # window dimensions
 
-background_color = "#272829"
-font_style = "Times new roman" 
-font_size = 16  
+background_color = "#272829" #color
+font_style = "Times new roman" #font 
+font_size = 16  #font size 
 
 content_frame = tk.Frame(root, bg=background_color)
-content_frame.place(relwidth=1, relheight=1)
+content_frame.place(relwidth=1, relheight=1)  
 
 
 output_text = tk.Text(content_frame, wrap="word", background="#EAD7BB")
@@ -426,7 +429,7 @@ button_stop.place(relx=0.6, rely=0.7, relwidth=0.2, relheight=0.1)
 def scroll_to_end():
     output_text.yview_moveto(1.0)  
 
-scroll_to_end()
+scroll_to_end() # will scroll the output in the window when it reaches to the end
 
 
 
